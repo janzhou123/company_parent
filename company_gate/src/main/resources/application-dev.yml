@@ -1,0 +1,29 @@
+server:
+  port: 8080
+#zuul:
+#  routes:
+#    risk:
+#      path: /risk/v1/**
+#      url: http://localhost:9090/risk/v1
+
+
+#不使用注册中心的情况下也使用负载均衡  http://localhost:8080/kltb/risk/v1/apply
+zuul:
+  routes:
+    risk-provider:
+      path: /kltb/**
+      serviceId: risk-service
+ribbon:
+  eureka:
+    enabled: false
+risk-service:
+  ribbon:
+    listOfServers: http://localhost:9090/,http://localhost:9091/
+
+
+log:
+  path: /apps/company-gate
+
+logging:
+  level:
+    com.netflix: DEBUG

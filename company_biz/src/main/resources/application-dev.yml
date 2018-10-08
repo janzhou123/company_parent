@@ -1,0 +1,8 @@
+server:
+  port: 9090
+risk:
+  url: http://10.36.1.26:8080
+
+
+log:
+  path: /apps/company-biz
