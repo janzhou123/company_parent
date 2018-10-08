@@ -5,7 +5,7 @@
 
 	<groupId>com.company.biz</groupId>
 	<artifactId>company_biz</artifactId>
-	<version>${company_parent}</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>company_biz</name>
@@ -14,15 +14,15 @@
 	<parent>
 		<groupId>com.company</groupId>
 		<artifactId>company_parent</artifactId>
-		<version>${company_parent}</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.company</groupId>
-			<artifactId>company_common</artifactId>
-			<version>${company_parent}</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.company</groupId>-->
+			<!--<artifactId>company_common</artifactId>-->
+			<!--<version>${company_parent}</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>

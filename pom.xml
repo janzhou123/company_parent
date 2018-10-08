@@ -7,7 +7,7 @@
   <groupId>com.company</groupId>
   <artifactId>company_parent</artifactId>
   <packaging>pom</packaging>
-  <version>${company_parent}</version>
+  <version>1.0.0-SNAPSHOT</version>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -15,20 +15,23 @@
     <version>2.0.5.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
+  <modules>
+    <module>company_gate</module>
+    <module>company_common</module>
+    <module>company_biz</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
     <spring-cloud.version>Finchley.SR1</spring-cloud.version>
-    <company_parent>1.0.0</company_parent>
+    <company_parent>1.0.0-SNAPSHOT</company_parent>
+    <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
   </properties>
 
-  <modules>
-    <module>company_gate</module>
-    <module>company_common</module>
-    <module>company_biz</module>
-  </modules>
+
+
 
 
 
@@ -45,12 +48,30 @@
   </dependencyManagement>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>build-info</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <target>${java.version}</target>
+            <source>${java.version}</source>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
   <!-- 使用aliyun镜像 -->
   <repositories>

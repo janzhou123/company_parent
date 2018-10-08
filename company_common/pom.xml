@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<parent>
-  <artifactId>company_parent</artifactId>
-  <groupId>com.company</groupId>
-  <version>${company_parent}</version>
-</parent>
-<modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-<artifactId>company_common</artifactId>
+
+
+  <groupId>com.company</groupId>
+  <artifactId>company_common</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>company_common</name>
+  <description>common</description>
+
+  <parent>
+    <artifactId>company_parent</artifactId>
+    <groupId>com.company</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
 
 
 </project>
