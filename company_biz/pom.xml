@@ -18,11 +18,11 @@
 	</parent>
 
 	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>com.company</groupId>-->
-			<!--<artifactId>company_common</artifactId>-->
-			<!--<version>${company_parent}</version>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>com.company</groupId>
+			<artifactId>company_common</artifactId>
+			<version>${company_parent}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>

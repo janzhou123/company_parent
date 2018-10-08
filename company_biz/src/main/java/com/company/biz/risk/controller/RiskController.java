@@ -1,9 +1,9 @@
 package com.company.biz.risk.controller;
 
 
-
 import com.company.biz.risk.model.RiskApplyDto;
 import com.company.biz.risk.service.RiskInterfaceService;
+import com.company.common.util.R;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -19,14 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/risk/v1")
 public class RiskController {
+
   private static Logger log = LoggerFactory.getLogger(RiskController.class);
   @Autowired
   private RiskInterfaceService riskInterfaceService;
 
   @GetMapping("/apply")
-  public String sendApplyInfo2Risk(HttpServletRequest request, HttpServletResponse response) {
+  public R<String> sendApplyInfo2Risk(HttpServletRequest request, HttpServletResponse response) {
 
-    log.info("Request-No:"+request.getHeader("Request-No").toString());
+//    log.info("Request-No:"+request.getHeader("Request-No").toString());
     RiskApplyDto inArg = new RiskApplyDto();
 
     inArg.setSerialNo("12458768547");
@@ -54,12 +55,25 @@ public class RiskController {
           .sendApplyInfo2Risk(inArg);
       log.info("成功了");
       log.info(retStr);
-      return retStr;
+      return new R<>(retStr);
     } catch (Exception e) {
       log.info("出错了");
-      log.info( e.toString() + e.getMessage());
+      log.info(e.toString() + e.getMessage());
       throw new RuntimeException(e.getMessage());
     }
+  }
+
+  @GetMapping("/hello")
+  public R<String> sendHello() {
+    R return1 = new R<>();
+    return1.setCode(R.FAIL);
+    return1.setMsg("hello");
+    return return1;
+  }
+
+  @GetMapping("/hello2")
+  public R<String> sendHello2() {
+    return new R<>(new Exception("出错了"));
   }
 
 
