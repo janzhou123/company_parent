@@ -13,13 +13,24 @@ zuul:
     risk-provider:
       path: /kltb/**
       serviceId: risk-service
+  ratelimit:
+    enabled: true
+    default-policy:  #每个Url 所有服务在 1 秒内只能有 100 次请求且所有请求时间总和不得超过 30 秒
+      limit: 100
+      quota: 30
+      refresh-interval: 1
+      type: url   #每个Url
+#    policies:  #60秒内访问次数不得查过10次且访问时间这不得超过50秒
+#      risk-service:  #针对单个服务 需要有注册中心
+#        limit: 2
+#        quota: 50
+#        refresh-interval: 60
 ribbon:
   eureka:
     enabled: false
 risk-service:
   ribbon:
-    listOfServers: http://localhost:9090/,http://localhost:9091/
-
+    listOfServers: http://localhost:9090   #接nginx地址
 
 log:
   path: /apps/company-gate
